@@ -1,4 +1,4 @@
- Assumiamo che gli interi di una lista [d1;...;dn] rappresentino le durate di una sequenza
+(* Assumiamo che gli interi di una lista [d1;...;dn] rappresentino le durate di una sequenza
 temporale di eventi e1, . . . , en: per ogni i, di è la durata dell'evento ei
 , espressa in unità di
 tempo (u.t). Ad esempio, la lista [25;30;45] descrive la sequenza di eventi e1, e2, e3, dove
@@ -13,7 +13,7 @@ e1, e2, e3 è la sequenza di eventi con durate, rispettivamente, di 25, 30 e 45 
 che inizia al tempo 0 e dura 25 u.t., nirà al tempo 25; l'evento e2, che inizia quando unisce
 e1 (al tempo 25) e dura 30 u.t., unirà al tempo 55; e l'evento e3 che inizia al tempo 55 e dura
 45 u.t., unisce al tempo 100
-
+*)
 let rec sumof = function
 	[] -> 0
 	|x::rst -> x + (sumof rst);;
