@@ -33,15 +33,15 @@ let search_path grafo start finish =
 	in from_node [] start
 
 
-	let search_path_tappa grafo start tappa finish =
-		let rec from_node visited n = 
-			if List.mem n visited
-			then raise NotFound
-			else if ((List.mem tappa visited) && (n=finish)) then [n]
-				else n::from_list (n::visited) (vicini n grafo)
-		and from_list visited = function
-				[] -> raise NotFound
-			| n::rest -> 
-					try from_node visited n
-					with NotFound -> from_list visited rest
-		in from_node [] start
+let search_path_tappa grafo start tappa finish =
+	let rec from_node visited n = 
+		if List.mem n visited
+		then raise NotFound
+		else if ((List.mem tappa visited) && (n=finish)) then [n]
+			else n::from_list (n::visited) (vicini n grafo)
+	and from_list visited = function
+			[] -> raise NotFound
+		| n::rest -> 
+				try from_node visited n
+				with NotFound -> from_list visited rest
+	in from_node [] start
